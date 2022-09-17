@@ -3,14 +3,14 @@ const Joi = require("joi");
 module.exports = {
   expensesValidation: (req, res, next) => {
     const schema = Joi.object({
-      date: Joi.string().required(),
-      food: Joi.string().required(),
-      goods: Joi.string().required(),
-      services: Joi.string().required(),
-      makeup: Joi.string().required(),
-      medicine: Joi.string().required(),
-      clothing: Joi.string().required(),
-      transport: Joi.string().required(),
+      date: Joi.string(),
+      food: Joi.string(),
+      goods: Joi.string(),
+      services: Joi.string(),
+      makeup: Joi.string(),
+      medicine: Joi.string(),
+      clothing: Joi.string(),
+      transport: Joi.string(),
     });
 
     const { error } = schema.validate(req.body);
