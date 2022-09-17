@@ -4,36 +4,36 @@ const expensesSchema = new Schema(
   {
     date: {
       type: String,
-      default: "",
+      default: null,
     },
 
     food: {
       type: String,
-      default: "",
+      default: null,
     },
     goods: {
       type: String,
-      default: "",
+      default: null,
     },
     services: {
       type: String,
-      default: "",
+      default: null,
     },
     makeup: {
       type: String,
-      default: "",
+      default: null,
     },
     medicine: {
       type: String,
-      default: "",
+      default: null,
     },
     clothing: {
       type: String,
-      default: "",
+      default: null,
     },
     transport: {
       type: String,
-      default: "",
+      default: null,
     },
     owner: {
       type: Schema.Types.ObjectId,
