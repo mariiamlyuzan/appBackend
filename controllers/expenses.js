@@ -64,7 +64,7 @@ async function addExpenses(req, res, next) {
 async function updateExpenses(req, res, next) {
   try {
     const { _id } = req.params;
-    const expenses = await Expenses.findOneAndUpdate(_id, req.body, {
+    const expenses = await Expenses.findOneAndUpdate({ _id: _id }, req.body, {
       new: true,
     });
     if (!_id) {
