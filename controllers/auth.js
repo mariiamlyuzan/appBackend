@@ -62,7 +62,7 @@ async function logIn(req, res, next) {
     const payload = {
       id: user._id,
     };
-    const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "10h" });
+    const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "14d" });
     await User.findByIdAndUpdate(user._id, { token });
     res.json({
       status: "success",
@@ -91,11 +91,13 @@ async function logOut(req, res, next) {
 async function getCurrentUser(req, res, next) {
   try {
     const { email } = req.user;
+    const user = await User.findOne({ email });
     res.json({
       status: "success",
       code: 200,
       user: {
         email,
+        name: user.name,
       },
     });
   } catch (err) {
