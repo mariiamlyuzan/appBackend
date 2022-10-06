@@ -89,6 +89,7 @@ async function logOut(req, res, next) {
 }
 
 async function getCurrentUser(req, res, next) {
+  const user = await User.findOne({ email });
   try {
     const { email } = req.user;
     res.json({
@@ -96,6 +97,7 @@ async function getCurrentUser(req, res, next) {
       code: 200,
       user: {
         email,
+        name: user.name,
       },
     });
   } catch (err) {
