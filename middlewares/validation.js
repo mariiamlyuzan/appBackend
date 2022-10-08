@@ -22,6 +22,21 @@ module.exports = {
     next();
   },
 
+  incomeValidation: (req, res, next) => {
+    const schema = Joi.object({
+      date: Joi.string().required(),
+      income: Joi.string().required(),
+    });
+
+    const { error } = schema.validate(req.body);
+    if (error) {
+      error.status = 400;
+      throw error;
+    }
+
+    next();
+  },
+
   userRegisterValidation: (req, res, next) => {
     const schema = Joi.object({
       name: Joi.string().required(),
